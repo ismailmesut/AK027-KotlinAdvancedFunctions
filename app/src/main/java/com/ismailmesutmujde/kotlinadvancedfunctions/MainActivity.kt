@@ -1,5 +1,6 @@
 package com.ismailmesutmujde.kotlinadvancedfunctions
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
@@ -36,7 +37,44 @@ class MainActivity : AppCompatActivity() {
                 println(person.name)
             }
         }
-        
+
+        // apply
+        val intent = Intent()
+        intent.putExtra("","")
+        intent.putExtra("","")
+        intent.`package` = ""
+        intent.action = ""
+
+        val intentWithApply = Intent().apply {
+            putExtra("","")
+            putExtra("","")
+            `package` = ""
+            action = ""
+        }
+
+        //with
+        Person("barley",4).apply {
+            name = "Barley"
+        }.also {
+            println(it.name)
+        }
+
+        val newBarley = Person("bar", 4).apply {
+            name = "Barley"
+        }
+        println(newBarley.name)
+
+        val anotherBarley = with(Person("arley", 4)) {
+            name = "Barley"
+        }
+        println(anotherBarley)
+
+        val withBarley = Person("arley", 4)
+        with(withBarley) {
+            name = "Barley"
+            age = 4
+        }
+        println("last barley : " + withBarley.name)
     }
 }
 
